@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="logo">
+    <h1>
+      <%= title %>
+    </h1>
+  </header>
+  <main>
+    <aside >
+      <ul>
+        <li  onclick="putActive(this)" id="dashboard">Dashboard</li>
+        <li  onclick="putActive(this)" >Candidates</li>
+        <li class="active" onclick="putActive(this)" >Result</li>
+        
+      </ul>
+    </aside>
+    <article>
+      <div class="dashboard maindivs">
+        <div class="overview">
+          <div class="grid-container">
+            <div class="grid-item">Total Votes Polled <p class="details"><%= totalVotes %></p>
+            </div>
+            <div class="grid-item">Total Voters <P class="details">123</P>
+            </div>
+            <div class="grid-item">Total Candidates <P class="details">15</P>
+            </div>
+            <div class="grid-item">Polling <P class="details"><%= percent %>%</P>
+            </div>
+          </div>
+        </div>
+      </div>
+         
+      <div class="candidates maindivs inactive">
+        <div class="machine">
+          <table>
+            <tr class="table trhead">
+              <th class="candNum">Symbol</th>
+              <th class="candNum">Name</th>
+              <th class="candNum">Sl.No</th>
+            </tr>
+            <% var index = 1  %>
+          <% resultData.forEach(element => {   %>
+            
+            <tr class="table">
+              
+              <td class="symbol"><img id="symbol" src="Symbols/<%= element.symbol %>" alt=""></td>
+              <td class="candName"><%= element.name %></td>
+              <td class="candNum"><%=index%></td>
+            </tr>
+          
+            <% index++; }); %>
+          </table>
+          </div> 
+      </div>
+      <div class="result maindivs inactive"><div>
+          <div class="resultTitle"><p>Results</p></div>
+          <div class="resultData">
+            <table>
+              <tr class="table trhead">
+                <th class="candName">Name</th>
+                <th class="candNum">Symbol</th>
+                <th class="candNum">Vote</th>
+              </tr>
+              <% resultData.forEach(element => { %>
+              <tr class="table">
+                <td class="candName"><%= element.name %></td>
+                <td class="symbol"><img id="symbol" src="Symbols/<%= element.symbol %>" alt=""></td>
+                <td class="candNum"><%= element.vote %></td>
+              </tr>
+              <% }); %>
+            </table>
+          </div>
+      </div></div>
+      <div class="election"></div>
+    </article>
+  </main>
+  <script>
+    
+    function putActive(e){
+      var liItems = document.getElementsByTagName("li");
+      for (let i = 0; i < liItems.length; i++) {
+      liItems[i].classList.remove("active"); 
+      }
+      var maindivs = document.getElementsByClassName("maindivs")
+      for (let i = 0; i < maindivs.length; i++) {
+      maindivs[i].classList.add("inactive"); 
+    }
+      e.classList.add("active");
+      var cname = (e.innerHTML).toLowerCase();
+      document.getElementsByClassName(cname)[0].classList.remove("inactive")
+
+      if(document.getElementById("dashboard").classList.contains("active")){
+      const timeout = setTimeout(()=>{
+      location.reload();
+    },5000);
+    // }else{
+    //   function myStopFunction() {
+    //     clearTimeout(timeout);
+    //   }
+    }
+
+    }
+  
+
+  </script>
+</body>
+
+</html>

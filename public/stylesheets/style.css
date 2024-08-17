@@ -1,0 +1,177 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Janna-Bold';
+  src: url('Janna LT Bold/Janna LT Bold.ttf') format('truetype');
+
+        font-weight: normal;
+        font-style: normal;
+      }
+
+a {
+  color: #00B7FF;
+}
+p{
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Janna-Bold';
+}
+.resultTitle{
+  text-align: center;
+}
+img{
+  width: 10%;
+  stroke: white;
+  stroke-width: 10px;
+  
+  
+}
+header{
+  background-color: #2C6E98;
+  display: flex;
+  align-items: center;
+}
+h1{
+  font-size: 2.5rem;
+  color: white;
+  
+}
+main{
+  display: flex;
+}
+aside{
+  background-color: #A5DDFF;
+  width: 15%;
+  min-height: 100vh;
+  
+}
+ul{
+  padding: 5px;
+}
+li{
+  padding: 30px;
+  font-weight: 800;
+  list-style-type: none;
+  height: 20px;
+  font-size: 1.2rem;
+}
+li:hover{
+  color: #2C6E98;
+  cursor: pointer;
+  margin-left: 15px;
+}
+article{
+  background-color: #E6F4F1;
+  width: 85%;
+  min-height: 100vh;
+  }
+  .dashboard{
+    margin-top: 2rem;
+  }
+.overview{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+.grid-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px;
+  /* margin-left: ; */
+}
+.grid-item {
+  background-color:#2C6E98;
+  color:#A5DDFF;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 25px;
+  width: 250px;
+  height: 130px;
+  font-size: 1.5em;
+  border-radius: 15px;
+}
+
+.details{
+  font-size: 3rem;
+  font-weight: 900;
+  margin-top: 20px;
+  color: white;
+
+}
+.active{
+  background-color:#E6F4F1;
+  margin-left: 15px;
+  width: 210px;
+  min-width: 150px;
+  overflow: visible;
+  border-radius: 30px;
+}
+.inactive{
+  display:none;
+}
+.table{
+  margin: auto;
+  margin-top: 5px;
+  padding: 5px;
+  width: 80%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items:center;
+  align-items: center;
+  background-color: white;
+  height: fit-content;
+  font-family: 'Janna-Bold';
+}
+#symbol{
+  width: 40%;
+  padding: 0;
+  scale: 1.5;
+}
+.candName{
+  font-weight: 500;
+  font-size: 1.5rem;
+  width: 40%;
+  padding-right: 3rem;
+  text-align: right;
+  font-family: 'Janna-Bold';
+}
+.candNum{
+  font-weight: 500;
+  font-size: 1.5rem;
+  width: 10%;
+  padding-right: 3rem;
+  text-align: right;
+  font-family: 'Janna-Bold';
+}
+  
+table{
+  margin-inline: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+}
+.trhead{
+  background-color: #2C6E98;
+  color: white;
+}
+
+.symbol{
+  width: 12%;
+  margin-left: 1rem;
+}
+.machine{
+  margin-inline: auto;
+  width: 100%;
+}
+.candidates{
+  width: 100%;
+}

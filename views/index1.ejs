@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="logo">
+    <h1>
+      <%= title %>
+    </h1>
+  </header>
+  <div class="result maindivs"><div>
+    <div class="resultTitle"><p>Results</p></div>
+    <div class="resultData">
+      <table>
+        <tr class="table trhead">
+          <th class="candName">Name</th>
+          <th class="candNum">Symbol</th>
+          <th class="candNum">Vote</th>
+        </tr>
+        <% resultData.forEach(element => { %>
+        <tr class="table">
+          <td class="candName"><%= element.name %></td>
+          <td class="symbol"><img id="symbol" src="Symbols/<%= element.symbol %>" alt=""></td>
+          <td class="candNum"><%= element.vote %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+</div></div>

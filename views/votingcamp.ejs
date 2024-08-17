@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style1.css' />
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="logo">
+    <h1>
+      <%= title %>
+    </h1>
+  </header>
+  <main>
+    <div>
+      <p class="mainhead">المرشحون</p>
+    </div>
+    <div>
+      <p class="batch">رئيس القرية</p>
+    </div>
+    <div class="machine">
+    <% candidates.forEach(element => { %>
+      <div class="table">
+        <div class="symbol"><img id="symbol" src="Symbols/<%= element.symbol %>" alt=""></div>
+        <div class="candName"><%= element.name %></div>
+        <div class="pollbutton">
+          <img id="indicator" src="left-long-solid.svg" alt="">
+          <button onclick="vote(this)" value="<%= element.name %>">تصويت</button></div>
+      </div>
+      <% }); %>
+    </div> 
+  </main>
+  <script>
+    
+    var beep = new Audio('Audio/Beep.mp3');
+    var indicator = document.getElementById("indicator");
+    function vote(e) {
+      console.log(e.value);
+      $.post("/votedcamp", { name: e.value} );
+      var butItems = document.getElementsByTagName("button");
+      for (let i = 0; i < butItems.length; i++) {
+      butItems[i].setAttribute("disabled", "");
+      butItems[i].style.backgroundColor = "gray"; 
+    }
+      e.previousElementSibling.style.filter = "grayscale(0%)";
+      beep.play();
+      setTimeout(()=>{
+        location.reload();
+      },5000)
+      
+    }
+  </script>
+  <script src="javascripts/jquery-3.7.1.js" type="text/javascript"></script>
+</body>
+
+</html>
